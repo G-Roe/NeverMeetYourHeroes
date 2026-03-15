@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Mystery Image Zoomer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.1.0/openseadragon.min.js"></script>
+    <style>
+        body { margin: 0; background-color: #111; }
+        #openseadragon1 {
+            width: 100vw;
+            height: 100vh;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div id="openseadragon1"></div>
+
+<script type="text/javascript">
+    var viewer = OpenSeadragon({
+        id: "openseadragon1",
+        prefixUrl: "https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.1.0/images/",
+        tileSources: {
+            type: 'image',
+            url:  'mystery.png' // This must match your filename exactly
+        },
+        showRotationControl: true,
+        gestureSettingsMouse: {
+            scrollToZoom: true
+        }
+    });
+</script>
+</body>
+</html>
