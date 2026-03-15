@@ -21,14 +21,22 @@
     var viewer = OpenSeadragon({
         id: "openseadragon1",
         prefixUrl: "https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.1.0/images/",
+        // This line tells the browser not to worry about tracking/cookies
+        crossOriginPolicy: 'Anonymous', 
         tileSources: {
             type: 'image',
-            url:  'mystery.png' 
+            url: 'mystery.png'
         },
         showRotationControl: true,
         gestureSettingsMouse: {
             scrollToZoom: true
         }
+    });
+
+    // This part helps us see if the error is still happening in the background
+    viewer.addHandler('open-failed', function(event) {
+        console.error('OpenSeadragon failed to open:', event);
+        alert("The image failed to load. Check if 'mystery.png' is in the same folder as this page!");
     });
 </script>
 </body>
